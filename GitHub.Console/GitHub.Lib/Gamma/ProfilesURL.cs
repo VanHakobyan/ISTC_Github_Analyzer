@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace GitHub.Lib.Gamma
 {
 
-    public class Rootobject1
+    public class URL_Rootobject
     {
         public string login { get; set; }
         public int id { get; set; }

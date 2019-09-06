@@ -12,6 +12,8 @@ namespace GitHub.Console
         static void Main(string[] args)
         {
             Ser_Deser_Json.Deserialize();
+            //Ser_Deser_Json.GetAllProfiles();
+            Ser_Deser_Json.GetAllRepo();
         }
     }
 }

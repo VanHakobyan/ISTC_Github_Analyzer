@@ -7,14 +7,7 @@ using System.Threading.Tasks;
 namespace GitHub.Lib.Gamma
 {
 
-    public class Rootobject
-    {
-        public int total_count { get; set; }
-        public bool incomplete_results { get; set; }
-        public Item[] items { get; set; }
-    }
-
-    public class Item
+    public class URL_Rootobject
     {
         public string login { get; set; }
         public int id { get; set; }
@@ -34,6 +27,19 @@ namespace GitHub.Lib.Gamma
         public string received_events_url { get; set; }
         public string type { get; set; }
         public bool site_admin { get; set; }
-        public float score { get; set; }
+        public string name { get; set; }
+        public object company { get; set; }
+        public string blog { get; set; }
+        public string location { get; set; }
+        public object email { get; set; }
+        public object hireable { get; set; }
+        public object bio { get; set; }
+        public int public_repos { get; set; }
+        public int public_gists { get; set; }
+        public int followers { get; set; }
+        public int following { get; set; }
+        public DateTime created_at { get; set; }
+        public DateTime updated_at { get; set; }
     }
+
 }

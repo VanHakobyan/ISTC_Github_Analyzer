@@ -11,20 +11,46 @@ namespace GitHub.Lib.Gamma
 {
     public static class Ser_Deser_Json
     {
-        public static Data Deserialize()
+        static List<Item> profiles = new List<Item>();
+        static List<URL_Rootobject> allPprofiles = new List<URL_Rootobject>();
+        static List<Class1> Repo = new List<Class1>();
+
+        public static void Deserialize()
         {
-            string data = SendGetRequest("https://api.github.com/search/users?q=location:armenia&page=1&per_page=100");
-            return JsonConvert.DeserializeObject<Data>(data) as Data;
+            for (int i = 1; i < 10; i++)
+            {
+                string data = SendGetRequest("https://api.github.com/search/users?q=location:armenia&page={i}&per_page=100");
+                var persons = JsonConvert.DeserializeObject<Rootobject>(data);
+                profiles.AddRange(persons.items);
+            }
         }
 
-        public static string Serialize(Data ob)
+        public static void GetAllProfiles()
         {
-            return JsonConvert.SerializeObject(ob);
+            int i = 0;
+            foreach (var item in profiles)
+            {
+                string data = SendGetRequest(item.url);
+                URL_Rootobject persons = JsonConvert.DeserializeObject<URL_Rootobject>(data);
+                allPprofiles.Add(persons);
+
+                if (i++ == 10)
+                    break;
+            }
         }
 
-        public static void AddProfiles()
+        public static void GetAllRepo()
         {
+            int i = 0;
+            foreach (var item in profiles)
+            {
+                string data = SendGetRequest(item.repos_url);
+                Repo_Rootobject repos = JsonConvert.DeserializeObject<Repo_Rootobject>(data);
+                Repo.AddRange(repos.Property1);
 
+                if (i++ == 10)
+                    break;
+            }
         }
 
 
@@ -44,7 +70,7 @@ namespace GitHub.Lib.Gamma
                     allGithubContentJson = client.DownloadString(url);
                     break;
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     //
                 }

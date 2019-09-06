@@ -48,7 +48,10 @@
     <Compile Include="Gamma\Deserialize_Json.cs" />
     <Compile Include="Gamma\ProfilesURL.cs" />
     <Compile Include="Gamma\Repos.cs" />
+    <Compile Include="Betta\GetData.cs" />
+    <Compile Include="Betta\Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepoList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -11,22 +11,17 @@ namespace GitHub.Lib.Gamma
 {
     public static class Ser_Deser_Json
     {
-        public static Data Deserialize()
+        static List<Item> profiles = new List<Item>();
+
+        public static void Deserialize()
         {
-            string data = SendGetRequest("https://api.github.com/search/users?q=location:armenia&page=1&per_page=100");
-            return JsonConvert.DeserializeObject<Data>(data) as Data;
+            for (int i = 1; i < 10; i++)
+            {
+                string data = SendGetRequest("https://api.github.com/search/users?q=location:armenia&page={i}&per_page=100");
+                var persons = JsonConvert.DeserializeObject<Rootobject>(data);
+                profiles.AddRange(persons.items);
+            }
         }
-
-        public static string Serialize(Data ob)
-        {
-            return JsonConvert.SerializeObject(ob);
-        }
-
-        public static void AddProfiles()
-        {
-
-        }
-
 
         private static string SendGetRequest(string url)
         {
@@ -44,7 +39,7 @@ namespace GitHub.Lib.Gamma
                     allGithubContentJson = client.DownloadString(url);
                     break;
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     //
                 }

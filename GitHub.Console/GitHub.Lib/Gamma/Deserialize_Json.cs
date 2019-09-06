@@ -13,7 +13,7 @@ namespace GitHub.Lib.Gamma
     {
         static List<Item> profiles = new List<Item>();
         static List<URL_Rootobject> allPprofiles = new List<URL_Rootobject>();
-        static List<Class1> Repo = new List<Class1>();
+        static List<Repository> Repo = new List<Repository>();
 
         public static void Deserialize()
         {
@@ -45,8 +45,8 @@ namespace GitHub.Lib.Gamma
             foreach (var item in profiles)
             {
                 string data = SendGetRequest(item.repos_url);
-                Repo_Rootobject repos = JsonConvert.DeserializeObject<Repo_Rootobject>(data);
-                Repo.AddRange(repos.Property1);
+                List<Repository> repos = JsonConvert.DeserializeObject<List<Repository>>(data);
+                Repo.AddRange(repos);
 
                 if (i++ == 10)
                     break;

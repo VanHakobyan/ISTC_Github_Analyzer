@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GitHub.Lib.Gamma;
 
 namespace GitHub.Console
 {
@@ -10,6 +11,9 @@ namespace GitHub.Console
     {
         static void Main(string[] args)
         {
+            Ser_Deser_Json.Deserialize();
+            //Ser_Deser_Json.GetAllProfiles();
+            Ser_Deser_Json.GetAllRepo();
         }
     }
 }

@@ -45,7 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Gamma\Data.cs" />
-    <Compile Include="Gamma\Deserialize_Json.cs" />
+    <Compile Include="Gamma\GitInfo.cs" />
     <Compile Include="Gamma\ProfilesURL.cs" />
     <Compile Include="Gamma\Repos.cs" />
     <Compile Include="Betta\GetData.cs" />

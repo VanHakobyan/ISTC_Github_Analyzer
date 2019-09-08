@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GitHub.Lib
+namespace GithubAnalyzer
 {
-
     public class TotalInfo
     {
         public int total_count { get; set; }
@@ -22,7 +21,6 @@ namespace GitHub.Lib
         public string avatar_url { get; set; }
         public string gravatar_id { get; set; }
         public string url { get; set; }
-
         public string html_url { get; set; }
         public string followers_url { get; set; }
         public string following_url { get; set; }
@@ -37,7 +35,6 @@ namespace GitHub.Lib
         public bool site_admin { get; set; }
         public float score { get; set; }
     }
-
 
     public class UserExtended
     {
@@ -74,13 +71,7 @@ namespace GitHub.Lib
         public DateTime updated_at { get; set; }
     }
 
-
     public class RepoInfo
-    {
-        public Class1[] Property1 { get; set; }
-    }
-
-    public class Class1
     {
         public int id { get; set; }
         public string node_id { get; set; }
@@ -178,8 +169,4 @@ namespace GitHub.Lib
         public string type { get; set; }
         public bool site_admin { get; set; }
     }
-
-
-
-
 }
